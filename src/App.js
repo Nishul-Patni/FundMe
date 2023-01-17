@@ -1,24 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './Components/Navbar';
+import Campaigns from './Components/Campaigns';
+import NewCampaign from './Components/NewCampaign';
+import { Container } from 'semantic-ui-react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes
+} from "react-router-dom";
+import ViewCampaign from './Components/ViewCampaign';
+import Requests from './Components/Request/Requests';
+import NewRequest from './Components/Request/NewRequest';
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar/>
+      <Container>
+        <Routes>
+          <Route exact path='/' element={<Campaigns/>}/>
+          <Route exact path='newCampaign' element={<NewCampaign/>}/>
+          <Route exact path='/viewCampaign/:id' element={<ViewCampaign/>}/>
+          <Route exact path='/viewCampaign/:id/requests' element={<Requests/>}/>
+          <Route exact path='/viewCampaign/:id/requests/new' element={<NewRequest/>}/>
+        </Routes>
+      </Container>
+    </Router>
   );
 }
 

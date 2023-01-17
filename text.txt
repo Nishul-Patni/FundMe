@@ -1,0 +1,2 @@
+campaignFactory deployed address
+0xbF178837141c2aA1b47E487D15ce9Dc715e3500f
